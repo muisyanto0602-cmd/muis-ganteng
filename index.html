@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Warung Rasa Ibu - hidangan Indonesia rumahan yang siap dipesan lewat WhatsApp.">
+  <title>Warung Rasa Ibu | Masakan Indonesia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#beranda" aria-label="Warung Rasa Ibu">
+      <span class="brand-mark">RI</span>
+      <span><strong>Warung Rasa</strong><small>Masakan Ibu</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="#menu">Menu</a>
+      <a href="#cerita">Cerita kami</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <button class="cart-button" id="openCart" type="button" aria-label="Buka keranjang">
+      <span class="cart-icon" aria-hidden="true">🛒</span>
+      <span>Keranjang</span>
+      <b id="cartCount">0</b>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <video class="hero-video" autoplay muted loop playsinline poster="videos/video restoran.mp4">
+        <source src="videos/video restoran.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Hangat, gurih, bikin rindu</p>
+        <h1>Rasa rumah ada<br>di setiap suapan.</h1>
+        <p class="hero-copy">Menu Indonesia pilihan yang dimasak fresh setiap hari, dengan resep keluarga yang sudah menemani banyak cerita.</p>
+        <a class="primary-button" href="#menu">Lihat menu <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-note"><span class="status-dot"></span> Buka setiap hari · 10.00 - 22.00</div>
+    </section>
+
+    <section class="menu-section" id="menu">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow eyebrow-dark">Dimasak sepenuh hati</p>
+          <h2>Menu favorit hari ini</h2>
+        </div>
+        <p class="section-description">Pilih sesukamu. Mau satu atau banyak, semua bisa langsung masuk keranjang.</p>
+      </div>
+      <div class="category-tabs" role="tablist" aria-label="Kategori menu">
+        <button class="category-tab active" data-category="Semua" type="button">Semua</button>
+        <button class="category-tab" data-category="Nasi" type="button">Nasi</button>
+        <button class="category-tab" data-category="Lauk" type="button">Lauk</button>
+        <button class="category-tab" data-category="Minuman" type="button">Minuman</button>
+      </div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+
+    <section class="story-section" id="cerita">
+      <div class="story-image"><img src="videos/video restoran.mp4" alt="Hidangan Indonesia hangat di meja makan" onerror="this.style.display='none'"></div>
+      <div class="story-copy">
+        <p class="eyebrow eyebrow-dark">Tentang warung kami</p>
+        <h2>Resep sederhana,<br>rasa yang tinggal lama.</h2>
+        <p>Warung Rasa Ibu lahir dari dapur kecil dan kerinduan pada masakan rumah. Kami memilih bahan segar dari pasar sekitar, lalu memasaknya dengan bumbu yang diracik setiap pagi.</p>
+        <div class="story-stats"><div><strong>12+</strong><span>Menu rumahan</span></div><div><strong>5 th</strong><span>Menemani kamu</span></div><div><strong>100%</strong><span>Halal & fresh</span></div></div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="kontak">
+      <div><p class="eyebrow">Mau makan apa hari ini?</p><h2>Pesan lewat WhatsApp,<br>langsung kami siapkan.</h2></div>
+      <button class="whatsapp-button" id="contactWhatsapp" type="button"><span aria-hidden="true">◉</span> Chat WhatsApp</button>
+    </section>
+  </main>
+
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Keranjang pesanan" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow eyebrow-dark">Pesanan kamu</p><h2>Keranjang</h2></div><button class="close-button" id="closeCart" type="button" aria-label="Tutup keranjang">×</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="empty-cart" id="emptyCart"><span>🍽️</span><h3>Keranjang masih kosong</h3><p>Yuk pilih menu favoritmu dulu.</p></div>
+    <div class="checkout-area" id="checkoutArea">
+      <div class="total-row"><span>Total pesanan</span><strong id="cartTotal">Rp0</strong></div>
+      <form id="orderForm">
+        <label>Nama kamu<input id="customerName" type="text" placeholder="Contoh: Budi" required></label>
+        <label>Catatan <span>(opsional)</span><textarea id="orderNote" rows="2" placeholder="Contoh: sambalnya dipisah ya"></textarea></label>
+        <button class="checkout-button" type="submit"><span aria-hidden="true">◉</span> Pesan via WhatsApp</button>
+        <small>Pesanan akan dibuka di WhatsApp untuk kamu kirim.</small>
+      </form>
+    </div>
+  </aside>
+  <script src="app.js"></script>
+</body>
+</html>
